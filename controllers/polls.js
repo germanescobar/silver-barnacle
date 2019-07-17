@@ -22,6 +22,7 @@ exports.new = (req, res) => {
 }
 
 exports.create = async (req, res, next) => {
+  console.log(req.body);
   const poll = new Poll(req.body);
   poll.user = res.locals.user._id;
   try {

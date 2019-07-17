@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const Poll = require("../../models/Poll");
 const app = require("../../app");
 
+jest.setTimeout(30000);
+
 let server;
 let page;
 let browser;
@@ -13,7 +15,6 @@ beforeAll(async () => {
 
   browser = await puppeteer.launch({
     headless: true,
-    // slowMo: 80,
     args: [`--window-size=${width},${height}`, '–no-sandbox', '–disable-setuid-sandbox']
   });
   page = await browser.newPage();
